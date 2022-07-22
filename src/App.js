@@ -1,27 +1,14 @@
 import "./App.css";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Apicaller from "./components/apicaller.ts";
+import PostCard from "./components/postbuilder.ts";
 
 const App = () => {
-  const [datajson, setdatajson] = useState(undefined);
-  const [datastring, setdatastring] = useState(undefined);
-
-  const AxiosCall = async () => {
-    let data = await axios("https://www.reddit.com/.json");
-    setdatajson(data);
-    setdatastring(JSON.stringify(datajson));
-    console.log(data);
-  };
-
-  useEffect(() => {
-    AxiosCall();
-  }, []);
-
-  useEffect(() => {
-    console.log("changed data");
-  }, [datastring]);
-
-  return <>{datastring}</>;
+  return (
+    <>
+      <PostCard />
+    </>
+  );
 };
 
 export default App;

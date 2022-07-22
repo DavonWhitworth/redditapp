@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const ApiCaller = (props) => {
-  let datajson;
-  let datastring;
+const ApiCaller = () => {
+  const [datajson, setdatajson] = useState();
+  const [datastring, setdatastring] = useState("");
 
   const AxiosCall = async () => {
-    datajson = await axios("https://www.reddit.com/.json");
-    datastring = JSON.stringify(datajson);
+    var data = await axios("https://www.reddit.com/.json");
+    setdatajson(data);
+    setdatastring(JSON.stringify(datajson));
+    console.log("The data called", data);
   };
-  console.log(datastring);
+
+  useEffect(() => {
+    AxiosCall();
+  }, []);
+
+  useEffect(() => {
+    console.log("changed data");
+  }, [datastring]);
   return datastring;
 };
 
