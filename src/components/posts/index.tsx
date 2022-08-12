@@ -12,13 +12,13 @@ const { postCardTypes } = types();
 const Posts = ({ feedName, currentCardType = postCardTypes.feed }) => {
   const [postsData, setPostsData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { fetchFeedPost } = getData();
+  const { fetchFeedPosts } = getData();
 
   useEffect(() => {
     const fetchPost = async () => {
       setIsLoading(true);
       try {
-        const data = await fetchFeedPost(feedName);
+        const data = await fetchFeedPosts(feedName);
         setPostsData(data);
         setIsLoading(false);
         return data;
