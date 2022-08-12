@@ -1,13 +1,15 @@
 import "./App.css";
-import PostCard from "./components/postbuilder.tsx";
-import ApiCaller from "./components/apicaller.tsx";
+import Posts from "./components/posts/index.tsx";
+
+//temp testing
+import { types } from "./components/posts/types.ts";
+const {postCardTypes} = types();
 
 function App() {
-  //<PostCard apireturn={ApiCaller} />;
   return (
-    //apicallreturn used as call back to map posts into usestate
     <div className="App">
-      <PostCard />
+      {/* <Posts feedName={'jokes'} currentCardType={postCardTypes.feed}/> */}
+      <Posts currentCardType={postCardTypes.feed}/>
     </div>
   );
 }
