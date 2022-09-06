@@ -1,15 +1,14 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
+import { ChildData } from "../../../Utils/APIs/apiinterface";
 
-export default function postCard({ post }) {
+//import Media from "../components/mics/media.tsx";
+//: ChildData
+function postCard({ post }) {
+  console.log(post);
   return (
-    <Box 
-    bg="primary"
-    padding='10px'
-    marginTop='5px'
-    >
+    <Box bg="primary" padding="10px" marginTop="5px">
       <Text variant="title">{post.title}</Text>
-
 
       {/* 
       <Username username={post.author}/>
@@ -17,8 +16,8 @@ export default function postCard({ post }) {
       <Media post={posts}/>
       <BottomBanner post={post}/> />
       */}
-
-      
     </Box>
   );
 }
+
+export default postCard;

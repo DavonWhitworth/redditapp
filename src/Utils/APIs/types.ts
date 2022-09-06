@@ -1,26 +1,20 @@
-
 const types = () => {
+  const sortType = {
+    top: "top",
+    best: "best",
+    hot: "hot",
+  };
 
-    const sortType = {
-        top: "top",
-        best: "best",
-        hot: "hot",
-    };
+  const sortTime = {
+    all: "all",
+    hour: "hour",
+    day: "day",
+  };
 
-    const sortTime ={
-        all: 'all',
-        hour: 'hour',
-        day: 'day',
-    }
-
-
-    return {
-        sortType,
-        sortTime
-    }
-}
-
-
-
+  return {
+    sortType,
+    sortTime,
+  };
+};
 
 export { types };

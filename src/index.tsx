@@ -7,6 +7,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./Theme/theme.js";
 
 const rootElement = document.getElementById("root");
+console.log({ rootElement });
 const root = createRoot(rootElement);
 
 root.render(
