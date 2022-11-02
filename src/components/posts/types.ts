@@ -20,7 +20,4 @@ export type PostInfoType = "post";
 
 export { types };
 
-
-interface postdata {
-  
-}
+interface postdata {}
