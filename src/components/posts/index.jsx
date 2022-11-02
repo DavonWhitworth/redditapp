@@ -10,12 +10,12 @@ import { getData } from "../../Utils/APIs/index";
 const Posts = ({
   /*currentFeedName = datatypes.feedName, 
   FeedName not used but could be. When viewing a sub, there is a seperate listing of the subname outside of any post*/
-  currentCardType,
+  //currentCardType //will set this to be argument in switch statment when new pages are added, for now only post type "feed" in {cardType}
 }) => {
   const [postsData, setPostsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { fetchFeedPosts } = getData();
-  const cardType = "feed"; //will delete this and set {currentCardType} as switch statment argument but until new pages are added, will only show feed posts
+  const cardType = "feed"; //will delete
 
   useEffect(() => {
     const fetchPost = async () => {
