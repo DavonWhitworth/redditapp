@@ -7,11 +7,13 @@ import LoadingScreen from "../mics/loadingScreen";
 //mics
 import { getData } from "../../Utils/APIs/index";
 
-const Posts = ({
-  /*currentFeedName = datatypes.feedName, 
+const Posts = (
+  {
+    /*currentFeedName = datatypes.feedName, 
   FeedName not used but could be. When viewing a sub, there is a seperate listing of the subname outside of any post*/
-  //currentCardType //will set this to be argument in switch statment when new pages are added, for now only post type "feed" in {cardType}
-}) => {
+    //currentCardType //will set this to be argument in switch statment when new pages are added, for now only post type "feed" in {cardType}
+  }
+) => {
   const [postsData, setPostsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { fetchFeedPosts } = getData();

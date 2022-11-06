@@ -72,20 +72,41 @@ const config = {
   components: {
     Text: {
       baseStyle: {
-        color: "white",
+        color: "secondary",
+        bg: "primary",
+        fontSize: "13px",
         wordBreak: "break-word",
       },
       variants: {
         user: {
-          color: "grey",
-          fontSize: "11px",
           wordBreak: "keep-all",
         },
         title: {
-          color: "white",
-          fontSize: "13px",
           wordBreak: "break-word",
         },
+        ups: {
+          wordBreak: "break-word",
+        },
+      },
+    },
+    Image: {
+      baseStyle: {
+        bg: "primary",
+      },
+      variants: {
+        rewards: {},
+      },
+    },
+    Box: {
+      baseStyle: {},
+      variants: {
+        post: {},
+      },
+    },
+    Stack: {
+      baseStyle: {},
+      variants: {
+        rewards: {},
       },
     },
     Button: {
