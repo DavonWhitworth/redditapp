@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, Image, Link, Box } from "@chakra-ui/react";
+import ReactPlayer from "react-player";
 
 export default function media(props) {
   const post = props.post;
@@ -8,44 +9,33 @@ export default function media(props) {
     console.log("Post_hint = undefined");
     return (
       <Link href={post.url} variant="media0">
-        <Text variant="media0">{post.url}</Text>
+        <Text variant="media0">Hint is undefined {post.url}</Text>
       </Link>
     );
   }
   let postType = JSON.stringify(post.post_hint);
   postType = postType.substring(1, postType.split("").length - 1);
+  const imageReg = /(jpg|png)/gi;
+  const videoReg = /hosted:video/gi;
+  const linkReg = /link/gi;
 
-  console.log(postType);
-
-  const mediaReturn = () => {
-    console.log(postType);
-    switch (postType) {
-      case "image":
-        return (
-          <Image
-            bg="red"
-            alt="picture for post"
-            src={post.url}
-            maxWidth="500"
-          />
-        );
-      case "link":
-        return (
-          <Link hred={post.url} vartiant="media">
-            URL: {post.url}
-          </Link>
-        );
-      case "self":
-        return <Text variant="media">{post.selftext}</Text>;
-      // case "hosted:video":
-      default:
-        return <Text>Nothing Happened in media component</Text>;
-    }
+  const ImageReturn = ({ post }) => {
+    console.log("image is running");
+    return (
+      <Image bg="red" alt="picture for post" src={post.url} maxWidth="500" />
+    );
+  };
+  const LinkReturn = () => {
+    return <Link href={post.url}>linkreturn function {post.url}</Link>;
+  };
+  const VideoReturn = () => {
+    return <ReactPlayer link={post.url} thumbnail={post.thumbnail} />;
   };
 
-  return (
-    <Box variant="mediaHead" alignItems="center" textAlign="center">
-      {mediaReturn()}
-    </Box>
-  );
+  const mediaReturn = () => {
+    console.log({ post }, { postType }, post.url.match(imageReg));
+  };
+
+  if (post.url.match(imageReg) !== null) <ImageReturn />;
+  else if (post.post_hint.match(linkReg) !== null) <LinkReturn />;
 }

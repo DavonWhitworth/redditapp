@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import Username from "./user";
@@ -9,7 +9,7 @@ import Subreddit from "./subreddit";
 //import Media from "../components/mics/media.tsx";
 
 function postCard({ post }) {
-  console.log({ post });
+  // console.log({ post });
   return (
     <Box
       variant="post"
