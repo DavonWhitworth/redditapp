@@ -70,6 +70,9 @@ const config = {
     },
   },
   components: {
+    Flex: {
+      baseStyle: {},
+    },
     Text: {
       baseStyle: {
         color: "secondary",

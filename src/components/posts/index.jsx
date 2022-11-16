@@ -6,6 +6,7 @@ import LoadingScreen from "../mics/loadingScreen";
 
 //mics
 import { getData } from "../../Utils/APIs/index";
+import { chakra } from "@chakra-ui/react";
 
 const Posts = () =>
   /*{currentFeedName = datatypes.feedName, 

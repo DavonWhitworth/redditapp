@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Flex } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import Username from "./user";
 import Rewards from "../components/rewards";
@@ -14,20 +14,26 @@ function postCard({ post }) {
     <Box
       variant="post"
       bg="primary"
-      margin="5px"
+      margin="0px, 30px"
       border="1px"
       borderColor="secondary"
+      width="auto"
       maxWidth="600px"
     >
-      <Subreddit post={post} />
-      <Username user={post.author} />
-      <Text variant="title">{post.title}</Text>
-      <Text variant="ups">
+      <Flex direction="column">
+        <Subreddit post={post} />
+        <Username user={post.author} />
+      </Flex>
+      <Text variant="title" display="flex" textAlign="left">
+        {post.title}
+      </Text>
+
+      <Rewards rewardList={post.all_awardings} display="flex" align="left" />
+      <Media post={post} />
+      <Text variant="ups" display="flex" textAlign="left">
         <ArrowUpIcon />
         {post.ups}
       </Text>
-      <Rewards rewardList={post.all_awardings} />
-      <Media post={post} />
     </Box>
   );
 }

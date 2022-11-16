@@ -1,18 +1,18 @@
 import React from "react";
-import { Text, Box, Image, Stack } from "@chakra-ui/react";
+import { Text, Box, Image, Flex } from "@chakra-ui/react";
 
 export default function rewards(props) {
   // console.log({ props });
 
   return (
     <Box variant="rewards">
-      <Text variant="rewardcount">
+      <Text variant="rewardcount" display="flex">
         Rewards &nbsp;
         {props.rewardList.length}
       </Text>
-      {props.rewardList.map((awardListing) => {
-        return (
-          <Stack variant="rewards" display="inline-flex" flex-direction="row">
+      <Flex variant="rewards" align="flex-start" border="5px">
+        {props.rewardList.map((awardListing) => {
+          return (
             <Image
               variant="rewards"
               src={awardListing.icon_url}
@@ -20,9 +20,9 @@ export default function rewards(props) {
               boxSize="40px"
               bg="primary"
             />
-          </Stack>
-        );
-      })}
+          );
+        })}
+      </Flex>
     </Box>
   );
 }
