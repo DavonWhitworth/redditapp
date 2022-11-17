@@ -10,7 +10,7 @@ export default function rewards(props) {
         Rewards &nbsp;
         {props.rewardList.length}
       </Text>
-      <Flex variant="rewards" align="flex-start" border="5px">
+      <Flex variant="rewards" align="flex-start" border="5px" wrap="wrap">
         {props.rewardList.map((awardListing) => {
           return (
             <Image
