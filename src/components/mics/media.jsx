@@ -9,6 +9,15 @@ export default function media(props) {
   const videoReg = /video/gi;
   const linkReg = /link/gi;
 
+  const mediaMaxWidth = "400px";
+  let isPlaying = false;
+
+  const TogglePlayer = () => {
+    console.log("player was = ", { isPlaying });
+    isPlaying = !isPlaying;
+    console.log("player now is = ", { isPlaying });
+  };
+
   // const ImageReturn = ({ post }) => {
   //   console.log("image is running");
   //   return (
@@ -25,7 +34,7 @@ export default function media(props) {
   //   return <Text variant="mediaDefault">Default, nothing happened</Text>;
   // };
 
-  console.log({ post }, post.url.match(imageReg));
+  console.log({ post }, post.url.match(videoReg));
 
   if (!post.post_hint) {
     console.log("Post_hint = undefined");
@@ -44,24 +53,28 @@ export default function media(props) {
         src={post.url}
         maxHeight="1000"
         width="100%"
-        maxWidth="500px"
+        maxWidth={mediaMaxWidth}
         display="flex"
       />
     );
   else if (post.post_hint.match(videoReg) !== null)
-    <Text display="flex" textAlign="left">
-      This is a video
-    </Text>;
+    return (
+      <Box display="flex" width="100%" onClick={TogglePlayer}>
+        <ReactPlayer
+          url={post.media.reddit_video.dash_url}
+          width="100%"
+          playing={true}
+        />
+      </Box>
+    );
   else
     return (
-      <Link
-        variant="media"
-        href={post.url}
-        color="secondary"
-        display="flex"
-        textAlign="left"
-      >
-        Default Return Statment; Link Here
-      </Link>
+      <ReactTinyLink
+        url={post.url}
+        cardSize="large"
+        showGraphic={true}
+        maxWidth={mediaMaxWidth}
+        width="100%"
+      />
     );
 }

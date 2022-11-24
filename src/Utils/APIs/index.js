@@ -29,6 +29,7 @@ const getData = () => {
       console.log(error);
       return null;
     }
+    console.log({ data });
     return data;
   };
 

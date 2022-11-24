@@ -89,6 +89,8 @@ const config = {
         },
         ups: {
           wordBreak: "break-word",
+          fontSize: "15px",
+          paddingTop: "10px",
         },
       },
     },

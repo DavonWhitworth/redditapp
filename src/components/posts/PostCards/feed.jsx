@@ -5,6 +5,7 @@ import Username from "./user";
 import Rewards from "../components/rewards";
 import Media from "../../mics/media";
 import Subreddit from "./subreddit";
+import BottonBanner from "./bottomBanner";
 
 //import Media from "../components/mics/media.tsx";
 
@@ -32,13 +33,7 @@ function postCard({ post }) {
 
       <Rewards rewardList={post.all_awardings} display="flex" align="left" />
       <Media post={post} />
-      <Flex>
-        <Text variant="ups" display="flex" textAlign="left" direction="row">
-          <ArrowUpIcon />
-          {post.ups}
-          <ArrowDownIcon />
-        </Text>
-      </Flex>
+      <BottonBanner post={post} />
     </Box>
   );
 }
