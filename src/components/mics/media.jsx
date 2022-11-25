@@ -63,7 +63,9 @@ export default function media(props) {
         <ReactPlayer
           url={post.media.reddit_video.dash_url}
           width="100%"
+          maxWidth={mediaMaxWidth}
           playing={true}
+          loop={true}
         />
       </Box>
     );
