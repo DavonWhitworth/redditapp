@@ -65,7 +65,7 @@ export default function media(props) {
           width="100%"
           maxWidth={mediaMaxWidth}
           playing={true}
-          loop={true}
+          
         />
       </Box>
     );
