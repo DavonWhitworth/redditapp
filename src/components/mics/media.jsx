@@ -18,23 +18,7 @@ export default function media(props) {
     console.log("player now is = ", { isPlaying });
   };
 
-  // const ImageReturn = ({ post }) => {
-  //   console.log("image is running");
-  //   return (
-  //     <Image bg="red" alt="picture for post" src={post.url} maxWidth="500" />
-  //   );
-  // };
-  // const LinkReturn = ({ post }) => {
-  //   return <Link href={post.url}>linkreturn function {post.url}</Link>;
-  // };
-  // const VideoReturn = ({ post }) => {
-  //   return <ReactPlayer link={post.url} thumbnail={post.thumbnail} />;
-  // };
-  // const DefaultCase = () => {
-  //   return <Text variant="mediaDefault">Default, nothing happened</Text>;
-  // };
-
-  console.log({ post }, post.url.match(videoReg));
+  // console.log({ post });
 
   if (!post.post_hint) {
     console.log("Post_hint = undefined");
@@ -58,6 +42,7 @@ export default function media(props) {
       />
     );
   else if (post.post_hint.match(videoReg) !== null)
+  try{
     return (
       <Box display="flex" width="100%" onClick={TogglePlayer}>
         <ReactPlayer
@@ -68,7 +53,10 @@ export default function media(props) {
           
         />
       </Box>
-    );
+    );}
+    catch(e){
+  console.log(e, post, post.post_hint, post.secure_media.reddit_video.dash_url)
+    }
   else
     return (
       <ReactTinyLink
