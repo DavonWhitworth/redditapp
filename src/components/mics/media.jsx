@@ -1,13 +1,13 @@
 import React from "react";
-import { Text, Image, Link, Box } from "@chakra-ui/react";
+import { Text, Image, Box } from "@chakra-ui/react";
 import ReactPlayer from "react-player";
 import { ReactTinyLink } from "react-tiny-link";
 
 export default function media(props) {
   const post = props.post;
-  const imageReg = /(jpg|png)/gi;
-  const videoReg = /video/gi;
-  const linkReg = /link/gi;
+  // const imageReg = /(jpg|png)/gi;
+  // const videoReg = /video/gi;
+  // const linkReg = /link/gi;
 
   const mediaMaxWidth = "400px";
   let isPlaying = false;
@@ -18,7 +18,7 @@ export default function media(props) {
     console.log("player now is = ", { isPlaying });
   };
 
-  // console.log({ post });
+  console.log({ post }, post.post_hint);
 
   if (!post.post_hint) {
     console.log("Post_hint = undefined");
@@ -27,7 +27,7 @@ export default function media(props) {
     } else {
       return <Text>{post.selftext}</Text>;
     }
-  } else if (post.url.match(imageReg) !== null)
+  } else if (post.post_hint === "image")
     return (
       <Image
         variant="media"
@@ -41,22 +41,22 @@ export default function media(props) {
         display="flex"
       />
     );
-  else if (post.post_hint.match(videoReg) !== null)
-  try{
+  else if (post.post_hint === "hosted:video")
+  
     return (
       <Box display="flex" width="100%" onClick={TogglePlayer}>
         <ReactPlayer
           url={post.media.reddit_video.dash_url}
+          fallback={post.media.reddit_video.fallback_url}
           width="100%"
           maxWidth={mediaMaxWidth}
-          playing={true}
+          autoplay= {true}
+          loop={true}
           
         />
+        
       </Box>
-    );}
-    catch(e){
-  console.log(e, post, post.post_hint, post.secure_media.reddit_video.dash_url)
-    }
+    );
   else
     return (
       <ReactTinyLink
