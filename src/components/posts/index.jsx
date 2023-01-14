@@ -6,7 +6,6 @@ import LoadingScreen from "../mics/loadingScreen";
 
 //mics
 import { getData } from "../../Utils/APIs/index";
-import { chakra } from "@chakra-ui/react";
 
 const Posts = () =>
   /*{currentFeedName = datatypes.feedName, 
@@ -33,6 +32,7 @@ const Posts = () =>
       };
       fetchPost();
       console.log("fetching post");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (isLoading) return <LoadingScreen />;
@@ -64,6 +64,8 @@ const Posts = () =>
           </div>
         );
       }
+      default:
+        return <div>default case here</div>;
     }
   };
 

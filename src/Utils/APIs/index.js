@@ -1,4 +1,3 @@
-import React, { Context, useContext } from "react";
 import axios from "axios";
 import { types } from "./types";
 
