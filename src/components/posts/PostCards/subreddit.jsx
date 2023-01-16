@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, Box, Image, Link } from "@chakra-ui/react";
+
+import { Text, Link } from "@chakra-ui/react";
 
 export default function subreddit(props) {
   return (
