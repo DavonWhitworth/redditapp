@@ -2,8 +2,6 @@ import React from "react";
 import { Text, Box, Image, Flex } from "@chakra-ui/react";
 
 export default function rewards(props) {
-  // console.log({ props });
-
   return (
     <Box variant="rewards">
       <Text variant="rewardcount" display="flex">

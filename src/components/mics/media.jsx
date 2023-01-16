@@ -8,10 +8,7 @@ export default function media(props) {
   const post = props.post;
   const mediaMaxWidth = "400px";
 
-  // console.log({ post }, post.title, post.post_hint);
-
   if (!post.post_hint) {
-    console.log("Post_hint = undefined");
     if (post.selftext === "") {
       return <Text>{post.selftext}</Text>;
     } else {

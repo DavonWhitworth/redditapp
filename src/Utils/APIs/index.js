@@ -1,17 +1,19 @@
+import { useContext } from "react";
+import { AppContext } from "../../AppContext";
+
 import axios from "axios";
-import { types } from "./types";
 
 //context data
 //import { SubTitleContext } from "../../globalStates/userSettings/index.tsx";
 
-const getData = () => {
-  const { sortType, sortTime } = types();
+const GetData = () => {
+  const { appData } = useContext(AppContext);
 
   const fetchFeedPosts = async (
     //Need to set up useContext to retrive set parameters
-    name = null,
-    SortType = sortType.hot,
-    currentSortTime = sortTime.day
+    name = appData.subReddit,
+    SortType = appData.sortType,
+    currentSortTime = appData.sortTime
   ) => {
     let data;
     try {
@@ -37,4 +39,4 @@ const getData = () => {
   };
 };
 
-export { getData };
+export { GetData as getData };
