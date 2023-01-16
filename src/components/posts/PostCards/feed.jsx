@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Box, Text, Flex, Image, Link } from "@chakra-ui/react";
-
 import Username from "./user";
 import Rewards from "../components/rewards";
 import Media from "../../mics/media";
@@ -8,8 +7,7 @@ import Subreddit from "./subreddit";
 import BottonBanner from "./bottomBanner";
 import RedditIcon from "../../../Utils/files/redditIcon.png";
 
-function postCard({ post }) {
-  // const { appData, setAppData } = useContext(AppContext);
+function PostCard({ post }) {
   // console.log({ post }, post.title);
   // const linkToRedditPost = "https://www.reddit.com/" + post.permalink;
   return (
@@ -50,4 +48,4 @@ function postCard({ post }) {
   );
 }
 
-export default postCard;
+export default PostCard;

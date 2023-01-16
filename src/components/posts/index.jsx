@@ -13,7 +13,7 @@ const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { fetchFeedPosts } = getData();
   const cardType = "feed"; //will delete
-  const { appData, setAppData } = useContext(AppContext);
+  const { appData } = useContext(AppContext);
 
   useEffect(() => {
     const fetchPost = async () => {

@@ -27,10 +27,10 @@ const GetData = () => {
         );
       }
     } catch (error) {
-      console.log(error);
+      console.log("API error");
       return null;
     }
-    console.log({ data });
+
     return data;
   };
 

@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function loadingScreen() {
-  return (
-    <div>loadingScreen</div>
-  )
+  return <div>Loading, please wait.</div>;
 }
