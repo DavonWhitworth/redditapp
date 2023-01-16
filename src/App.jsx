@@ -3,7 +3,7 @@ import "./App.css";
 import Posts from "./components/posts/index";
 import { Flex } from "@chakra-ui/react";
 import { AppContext } from "./AppContext";
-import NavBar from "./components/mics/SubModal.jsx";
+import NavBar from "./components/mics/NavBar.jsx";
 import SubModal from "./components/mics/SubRedditModal";
 
 function App() {
