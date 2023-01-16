@@ -64,7 +64,7 @@ export default function NavBar() {
           "Today",
           "This Week",
           "This Month",
-          "This Year",
+          // "This Year",
           "All Time",
         ]}
         onChange={(value) => setSortTime(value)}
