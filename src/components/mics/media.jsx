@@ -27,6 +27,8 @@ export default function media(props) {
         maxWidth={mediaMaxWidth}
         display="flex"
         margin="auto"
+        marginTop="12px"
+        marginBottom="12px"
       />
     );
   else if (post.post_hint === "hosted:video")
@@ -34,7 +36,6 @@ export default function media(props) {
       <Box display="flex" width="100%" height="400px">
         <Player
           src={post.media.reddit_video.fallback_url}
-          poster="https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/4697815.png"
           dimensions={{ width: "100%", height: "100%" }}
         />
       </Box>

@@ -10,7 +10,6 @@ export default function rewards(props) {
       </Text>
       <Flex variant="rewards" align="flex-start" border="5px" wrap="wrap">
         {props.rewardList.map((awardListing, key) => {
-          const awardKey = key + awardListing.name;
           return (
             <Image
               variant="rewards"
@@ -18,7 +17,7 @@ export default function rewards(props) {
               atl={awardListing.name}
               boxSize="40px"
               bg="primary"
-              key={awardKey}
+              key={key}
             />
           );
         })}

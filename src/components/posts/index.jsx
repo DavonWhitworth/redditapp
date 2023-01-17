@@ -4,25 +4,28 @@ import { AppContext } from "../../AppContext";
 //componets
 import FeedPostCard from "./PostCards/feed";
 import LoadingScreen from "../mics/loadingScreen";
+import PostView from "./PostCards/postView";
 
 //mics
 import { getData } from "../../Utils/APIs/index";
 
 const Posts = () => {
-  const [postsData, setPostsData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   const { fetchFeedPosts } = getData();
-  const cardType = "feed"; //will delete
-  const { appData } = useContext(AppContext);
+  const { appData, setAppData } = useContext(AppContext);
 
   useEffect(() => {
     const fetchPost = async () => {
       setIsLoading(true);
       try {
         const data = await fetchFeedPosts();
-        setPostsData(data);
-        setIsLoading(false);
 
+        setAppData((prevState) => ({
+          ...prevState,
+          pageData: data,
+        }));
+        setIsLoading(false);
         return data;
       } catch (error) {
         console.log(error);
@@ -31,30 +34,27 @@ const Posts = () => {
     fetchPost();
     console.log("fetching post");
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [appData.subReddit, appData.sortType, appData.sortTime]);
+  }, [appData.subReddit, appData.sortType, appData.sortTime, appData.pageType]);
 
   if (isLoading) return <LoadingScreen />;
-  switch (cardType) {
+  if (appData.pageType === "feed" && appData.pageData.data.length === 2)
+    return <div>{"   "}</div>;
+
+  switch (appData.pageType) {
     case "feed": {
       return (
         <div>
-          {postsData?.data.data.children.map((post, key) => {
+          {appData.pageData?.data.data.children.map((post, key) => {
             return <FeedPostCard key={key} post={post.data} />;
           })}
         </div>
       );
     }
     case "postWithComment": {
-      return (
-        <div>
-          {postsData?.data.data.children.map((post, key) => {
-            return <FeedPostCard key={key} post={post.data} />;
-          })}
-        </div>
-      );
+      return <PostView />;
     }
     default:
-      return <div>default case here</div>;
+      return <div>Post Default Page</div>;
   }
 };
 

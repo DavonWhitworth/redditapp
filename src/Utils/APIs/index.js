@@ -4,20 +4,26 @@ import { AppContext } from "../../AppContext";
 import axios from "axios";
 
 //context data
-//import { SubTitleContext } from "../../globalStates/userSettings/index.tsx";
 
 const GetData = () => {
   const { appData } = useContext(AppContext);
 
   const fetchFeedPosts = async (
-    //Need to set up useContext to retrive set parameters
     name = appData.subReddit,
     SortType = appData.sortType,
-    currentSortTime = appData.sortTime
+    currentSortTime = appData.sortTime,
+    pageType = appData.pageType,
+    postLinkEnd = appData.postToView
   ) => {
     let data;
     try {
-      if (name) {
+      if (pageType === "postWithComment") {
+        console.log(
+          "Link to post: ",
+          `https://www.reddit.com/${postLinkEnd}.json`
+        );
+        data = await axios.get(`https://www.reddit.com/${postLinkEnd}.json`);
+      } else if (name) {
         data = await axios.get(
           `https://www.reddit.com/r/${name}/${SortType}/.json?t=${currentSortTime}`
         );
@@ -27,7 +33,7 @@ const GetData = () => {
         );
       }
     } catch (error) {
-      console.log("API error");
+      console.log(error);
       return null;
     }
 
