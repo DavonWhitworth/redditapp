@@ -10,10 +10,11 @@ function App() {
   const [appData, setAppData] = useState({
     pageType: "feed",
     postToView: null,
+    pageData: null,
     subReddit: null,
-    sortType: null ?? "rising",
-    sortTime: null ?? "year",
-    isLoading: true,
+    sortType: "hot",
+    sortTime: "day",
+
     modalOpen: false,
   });
 

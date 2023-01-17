@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../../AppContext";
 
-import { Text, Link } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 
-export default function subreddit(props) {
+export default function Subreddit(props) {
+  const { setAppData } = useContext(AppContext);
   return (
-    <Link variant="subreddit" display="flex">
-      <Text variant="subreddit" fontSize="17px">
-        {props.post.subreddit_name_prefixed}
-      </Text>
-    </Link>
+    <Text
+      variant="subreddit"
+      fontSize="18px"
+      onClick={() =>
+        setAppData((prevState) => ({
+          ...prevState,
+          subReddit: props.post.subreddit,
+        }))
+      }
+    >
+      {props.post.subreddit_name_prefixed}
+    </Text>
   );
 }

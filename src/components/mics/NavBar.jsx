@@ -8,51 +8,99 @@ export default function NavBar() {
   const setSortType = (value) => {
     switch (value) {
       case "Hot":
-        setAppData((prevState) => ({ ...prevState, sortType: "hot" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortType: "hot",
+          pageType: "feed",
+        }));
         break;
       case "New":
-        setAppData((prevState) => ({ ...prevState, sortType: "new" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortType: "new",
+          pageType: "feed",
+        }));
         break;
       case "Top":
-        setAppData((prevState) => ({ ...prevState, sortType: "top" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortType: "top",
+          pageType: "feed",
+        }));
         break;
       case "Rising":
-        setAppData((prevState) => ({ ...prevState, sortType: "rising" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortType: "rising",
+          pageType: "feed",
+        }));
         break;
       default:
-        setAppData((prevState) => ({ ...prevState, sortType: "now" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortType: "now",
+          pageType: "feed",
+        }));
     }
   };
 
   const setSortTime = (value) => {
     switch (value) {
       case "Now":
-        setAppData((prevState) => ({ ...prevState, sortTime: "hour" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "hour",
+          pageType: "feed",
+        }));
         break;
       case "Today":
-        setAppData((prevState) => ({ ...prevState, sortTime: "day" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "day",
+          pageType: "feed",
+        }));
         break;
       case "This Week":
-        setAppData((prevState) => ({ ...prevState, sortTime: "week" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "week",
+          pageType: "feed",
+        }));
         break;
       case "This Month":
-        setAppData((prevState) => ({ ...prevState, sortTime: "month" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "month",
+          pageType: "feed",
+        }));
         break;
       case "This Year":
-        setAppData((prevState) => ({ ...prevState, sortTime: "year" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "year",
+          pageType: "feed",
+        }));
         break;
       case "All Time":
-        setAppData((prevState) => ({ ...prevState, sortTime: "all" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "all",
+          pageType: "feed",
+        }));
         break;
       default:
-        setAppData((prevState) => ({ ...prevState, sortTime: "day" }));
+        setAppData((prevState) => ({
+          ...prevState,
+          sortTime: "day",
+          pageType: "feed",
+        }));
     }
   };
 
   return (
-    <Card width="auto">
+    <Card width="auto" hidden={appData.pageType === "postWithComment"}>
       <Segmented
-        defaultValue={appData.sortTime}
+        defaultValue="Hot"
         options={["Hot", "New", "Top", "Rising"]}
         onChange={(value) => setSortType(value)}
       />
