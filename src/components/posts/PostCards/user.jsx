@@ -1,12 +1,10 @@
 import React from "react";
-import { Link, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 
-export default function user(props) {
+export default function User(props) {
   return (
-    <Link display="flex" variant="user" fontSize="12px">
-      <Text href="https://www.google.com/" variant="user">
-        u/{props.user}
-      </Text>
-    </Link>
+    <Text href="https://www.google.com/" variant="user" fontSize="14px">
+      u/{props.user}
+    </Text>
   );
 }

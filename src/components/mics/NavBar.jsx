@@ -98,7 +98,7 @@ export default function NavBar() {
   };
 
   return (
-    <Card width="auto">
+    <Card width="auto" hidden={appData.pageType === "postWithComment"}>
       <Segmented
         defaultValue="Hot"
         options={["Hot", "New", "Top", "Rising"]}

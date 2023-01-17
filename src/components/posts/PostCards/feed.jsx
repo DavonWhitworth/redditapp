@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Box, Text, Flex, Image, Link } from "@chakra-ui/react";
 
 import Username from "./user";
@@ -7,11 +7,8 @@ import Media from "../../mics/media";
 import Subreddit from "./subreddit";
 import BottonBanner from "./bottomBanner";
 import RedditIcon from "../../../Utils/files/redditIcon.png";
-import { AppContext } from "../../../AppContext";
 
 function PostCard({ post }) {
-  const { appData } = useContext(AppContext);
-
   // console.log({ post }, post.title);
   const linkToRedditPost = "https://www.reddit.com/" + post.permalink;
 
@@ -26,6 +23,7 @@ function PostCard({ post }) {
       width="auto"
       maxWidth="600px"
       gap={3}
+      border-radius="6px"
     >
       <Flex direction="row">
         <Box>
@@ -41,7 +39,8 @@ function PostCard({ post }) {
         display="flex"
         textAlign="left"
         margin="10px 0px"
-        width="100%"
+        width="96%"
+        marginLeft="12px"
       >
         {post.title}
       </Text>

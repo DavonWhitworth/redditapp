@@ -7,12 +7,8 @@ import Comments from "../components/comments";
 
 const PostWithComments = () => {
   const { appData, setAppData } = useContext(AppContext);
-  const [post, setPost] = useState(
-    appData.pageData?.data[0]?.data?.children[0].data
-  );
-  const [commentArr, setCommentArr] = useState(
-    appData.pageData?.data[1]?.data?.children
-  );
+  const [post] = useState(appData.pageData?.data[0]?.data?.children[0].data);
+  const [commentArr] = useState(appData.pageData?.data[1]?.data?.children);
   console.log({ commentArr });
   return (
     <div>

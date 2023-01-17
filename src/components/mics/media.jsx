@@ -27,8 +27,8 @@ export default function media(props) {
         maxWidth={mediaMaxWidth}
         display="flex"
         margin="auto"
-        marginTop="12px"
-        marginBottom="12px"
+        margintop="12px"
+        marginbottom="12px"
       />
     );
   else if (post.post_hint === "hosted:video")
@@ -43,13 +43,15 @@ export default function media(props) {
   else
     try {
       return (
-        <ReactTinyLink
-          url={post.url}
-          cardSize="large"
-          showGraphic={true}
-          maxWidth={mediaMaxWidth}
-          width="100%"
-        />
+        <div marginTop="12px" marginBottom="12px">
+          <ReactTinyLink
+            url={post.url}
+            cardSize="large"
+            showGraphic={true}
+            maxWidth={mediaMaxWidth}
+            width="100%"
+          />
+        </div>
       );
     } catch (e) {
       return (

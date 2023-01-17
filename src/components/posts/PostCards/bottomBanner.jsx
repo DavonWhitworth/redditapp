@@ -8,7 +8,7 @@ export default function BottomBanner(props) {
   const { appData, setAppData } = useContext(AppContext);
 
   return (
-    <Flex gap="12px">
+    <Flex gap="12px" marginTop="12px">
       <Text variant="ups" display="flex" textAlign="left" direction="row">
         <ArrowUpIcon />
         {props.post.ups}

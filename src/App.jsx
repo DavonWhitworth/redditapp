@@ -14,7 +14,7 @@ function App() {
     subReddit: null,
     sortType: "hot",
     sortTime: "day",
-    isLoading: true,
+
     modalOpen: false,
   });
 
